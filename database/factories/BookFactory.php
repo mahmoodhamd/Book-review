@@ -19,10 +19,10 @@ class BookFactory extends Factory
     {
 
         return [
-            'title'=>$this->faker->sentence(3),
-            'author'=>$this->faker->name(3),
-            'created_at'=>$this->faker->dateTimeBetween('-2 years'),
-            'updated_at'=>$this->faker->dateTimeBetween('created_at','now'),
+            'title'=>fake()->sentence(3),
+            'author'=>fake()->name,
+            'created_at'=>fake()->dateTimeBetween('-2 years'),
+            'updated_at'=>fake()->dateTimeBetween('created_at','now'),
 
 
         ];

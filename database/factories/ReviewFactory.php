@@ -18,10 +18,10 @@ class ReviewFactory extends Factory
     {
         return [
             'book_id'=>null,
-            'review' => $this->faker->paragraph,
-            'rating' => $this->faker->numberBetween(1, 5), // Adjust the range as needed
-            'created_at'=>$this->faker->dateTimeBetween('-2 years'),
-            'updated_at'=>$this->faker->dateTimeBetween('created_at','now'),
+            'review' => fake()->paragraph,
+            'rating' => fake()->numberBetween(1, 5), // Adjust the range as needed
+            'created_at'=>fake()->dateTimeBetween('-2 years'),
+            'updated_at'=>fake()->dateTimeBetween('created_at','now'),
 
 
         ];
