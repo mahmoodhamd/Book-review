@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Book;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,13 +15,26 @@ class BookController extends Controller
     public function index(Request $req)
     {
          $title=$req->input('title');
+         $author = $req->input('author');
 
-         $books =Book::when(
+
+        //  $books =Book::when(
+        //     $title,
+
+        //      fn($query,$title)=> $query->title($title),
+
+        //     // dd($title)
+        //     //dd($author)
+        //  )
+        //  ->get();
+
+        $books = Book::when(
             $title,
-             fn($query,$title)=> $query->title($title)
-         )
-         ->get();
-
+            fn($query, $title) => $query->title($title),
+        )->when(
+            $author,
+            fn($query, $author) => $query->author($author),
+        )->get();
          return view('books.index',['books'=>$books]);
     }
 

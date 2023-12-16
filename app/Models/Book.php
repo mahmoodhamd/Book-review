@@ -22,6 +22,10 @@ class Book extends Model
     {
           return $query->where('title','LIKE', '%' . $title . '%');
     }
+    public function scopeAuthor(Builder $query, string $author): Builder
+    {
+          return $query->where('author','LIKE', '%' . $author . '%');
+    }
 
     public function scopePopular(Builder $query, $from=null, $to=null): Builder|QueryBuilder
     {
